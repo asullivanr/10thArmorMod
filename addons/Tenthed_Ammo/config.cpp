@@ -19,6 +19,20 @@ class CfgAmmo {
 	class Tenthed_B_127x99_Ball_Tracer_Yellow : B_127x99_Ball {
 		hit = 30;
 	};
+
+	class B_762x51_Ball;
+	class Tenthed_B_95x40_Ball : B_762x51_Ball {
+		hit = 13;
+		typicalSpeed = 600;
+		caliber = 4;
+		model = "\A3\Weapons_f\Data\bullettracer\tracer_red";
+	};
+	class Tenthed_B_95x40_Tracer : Tenthed_B_95x40_Ball {
+		model = "\A3\Weapons_f\Data\bullettracer\tracer_red";
+	};
+	class Tenthed_B_95x40_Tracer_Yellow : Tenthed_B_95x40_Tracer {
+		model = "\A3\Weapons_f\Data\bullettracer\tracer_yellow";
+	};
 };
 class CfgMagazines {
 	class 130Rnd_338_Mag;
@@ -46,5 +60,36 @@ class CfgMagazines {
 		descriptionShort = "Rounds: 200<br/>Used in: [10th] HMG";
 		displaynameshort = "100Rnd 127x99";
 		mass = 75;
+	};
+
+	class 20Rnd_762x51_Mag;
+	class Tenthed_36Rnd_95x40_Mag : 20Rnd_762x51_Mag
+	{
+		dlc = "OPTRE";
+		model = "\OPTRE_Weapons\Ammo\BR55Ammo.p3d";
+		displayname = "36Rnd 9.5x40mm Magazine";
+		displaynameshort = "9.5x40mm";
+		ammo = "Tenthed_B_95x40_Ball";
+		count = 36;
+		initspeed = 925;
+		picture = "\OPTRE_weapons\br\icons\magazine.paa";
+		descriptionshort = "36 Round Magazine<br>9.5x40mm";
+		mass = 8;
+		tracersEvery = 0;
+		lastRoundsTracer = 6;
+	};
+	class Tenthed_36Rnd_95x40_Mag_Tracer : Tenthed_36Rnd_95x40_Mag {
+		dlc = "OPTRE";
+		displayname = "36Rnd 9.5x40mm Magazine (Tracers)";
+		displaynameshort = "9.5x40mm Tracer";
+		ammo = "Tenthed_B_95x40_Tracer";
+		descriptionshort = "36 Round Magazine<br>9.5x40mm<br>Tracer";
+		tracersEvery = 1;
+		lastRoundsTracer = 36;
+	};
+	class Tenthed_36Rnd_95x40_Mag_Tracer_Yellow : Tenthed_36Rnd_95x40_Mag_Tracer {
+		dlc = "OPTRE";
+		displayname = "36Rnd 9.5x40mm Magazine (Tracers Yellow)";
+		ammo = "Tenthed_B_95x40_Tracer_Yellow";
 	};
 }

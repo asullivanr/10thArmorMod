@@ -9,8 +9,8 @@ class CfgPatches {
 		units[] = {
 			"Tenthed_SupplyPod_Empty",
 			"Supply10thMedPod",
-			"Supply10thAmmoPod",
-			"Supply10thExplosivesPod",
+			"Tenthed_Supply10thAmmoPod",
+			"Tenthed_Supply10thExplosivesPod",
 
 			"Tenthed_SupplyPodTest",
 
@@ -61,7 +61,7 @@ class CfgVehicles {
 		class TransportItems {};
 	};
 
-	class Supply10thAmmoPod : Tenthed_SupplyPod_Empty
+	class Tenthed_Supply10thAmmoPod : Tenthed_SupplyPod_Empty
 	{
 		displayName = "Supply Pod - Ammo";
 		class TransportMagazines
@@ -236,7 +236,7 @@ class CfgVehicles {
 		class TransportWeapons {};
 		class TransportItems {};
 	};
-	class Supply10thExplosivesPod : Tenthed_SupplyPod_Empty
+	class Tenthed_Supply10thExplosivesPod : Tenthed_SupplyPod_Empty
 	{
 		displayName = "Supply Pod - Explosives";
 		class TransportMagazines
@@ -342,7 +342,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	class Supply10thMedPod : Tenthed_SupplyPod_Empty
+	class Tenthed_Supply10thMedPod : Tenthed_SupplyPod_Empty
 	{
 		displayName = "Supply Pod - Medical";
 		class TransportMagazines {};

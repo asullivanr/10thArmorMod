@@ -2,9 +2,7 @@
 
 LOG("Spawned Orbital Drop Droid Dispenser Logic");
 
-private ["_PodType"];
-
-_logic = _this Select 0;
+_logic = _this select 0;
 _units = _this select 1;
 _activated = _this select 2;
 
@@ -15,11 +13,9 @@ if ({local _x} count (objectcurators _logic) > 0) then {
 };
 if !(isserver) exitwith {};
 
-if (_activated) Then {
+if (_activated) then {
     _ammo = _logic getvariable ["type",gettext (configfile >> "cfgvehicles" >> typeof _logic >> "ammo")];
-    //_podtype = _logic getvariable ["type",gettext (configfile >> "cfgvehicles" >> typeof _logic >> "podtype")];
-    //_podtype = tolower gettext (configfile >> "cfgvehicles" >> _ammo >> "podtype");
-    If (_ammo != "" && _podtype != "") Then {
+    if (_ammo != "") then {
         _cfgAmmo = configfile >> "cfgammo" >> _ammo;
         //if !(isclass _cfgAmmo) exitwith {["CfgAmmo class '%1' not found.",_ammo] call bis_fnc_error;};
         // It seems BI broke this part...
@@ -152,20 +148,20 @@ if (_activated) Then {
             };
             deletevehicle _projectile;
             deletevehicle _soundSource;
+
 			LOG("Server, continuing on");
 			_position = position _logic;
 			LOGF_1("Firing Droid Dispenser Artillery at '%1'", _position);
-            //_cfgPod = configfile >> "cfgvehicles" >> _podtype;
-            //_spawner = _podtype createVehicle _position;
-            _PodType = _logic getVariable["PodType", ""];
-            _spawner = createSimpleObject ["Supply10thAmmoPod", _position, [], 0, "CAN_COLLIDE"];
+            _bType = "Tenthed_SupplyPod_Empty";
+			//_spawner = _bType createVehicle _position;
+            _spawner = createVehicle [_bType, _position, [], 0, "NONE"];
 			LOGF_2("Created Droid Dispenser Object '%1' at '%2'", _spawner, _position);
             //[_spawner] call FUNC(droidDispenserInit);
-            {
-                _x addCuratorEditableObjects [[_spawner], True];
-            } forEach allCurators;
+            //{
+            //    _x addCuratorEditableObjects [[_spawner], true];
+            //} forEach allCurators;
 
-            If (count objectcurators _logic > 0) then {
+            if (count objectcurators _logic > 0) then {
                 //--- Delete curator spawned logic
                 if (_shakeStrength > 0) then {
                     if (_simulation == "shotsubmunitions") then {sleep 0.5;};
